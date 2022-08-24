@@ -1,0 +1,32 @@
+% thesis template 
+% for Masters or Doctorate degree
+% at Central China Normal University
+% compile using pdflatex->Bibtex->pdflatex*2
+% by CL (raymond.chen88@outlook.com)
+
+\input{tex/settings}
+
+\begin{document}
+
+%%% front matter %%
+\input{tex/cover}
+\pagenumbering{roman}
+\input{tex/title}
+\input{tex/declaration}
+\input{tex/abstract}
+\input{tex/contents}
+
+%%% main body %%%
+\pagenumbering{arabic}
+\include{tex/chap-1}
+\include{tex/chap-2}
+\include{tex/summary}
+
+%%% end matter %%%
+\input{tex/appendix}
+\input{tex/bibliography}
+\input{tex/publications}
+\input{tex/acknowledgement}
+\input{tex/fonts} % comment out this line
+
+\end{document}

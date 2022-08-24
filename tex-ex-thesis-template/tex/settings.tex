@@ -1,0 +1,175 @@
+% settings for ctexart document, only uncomment options that you know
+\documentclass[
+	UTF8,
+%	zhmap=true,	%true,false,zhmCJK
+%	fontset=windows,	%adobe,fandol,founder,mac,macnew,macold,ubuntu,windows,none
+%	\songti\heiti\fangsong\kaishu\lishu\youyuan\yahei\pingfang
+	zihao=5,	%-4,5,false
+%	10pt,	%10pt,11pt,12pt, this supercedes zihao font size
+%	heading=true,	%true,false
+%	sub3section,	%sub3section,sub4section
+%	scheme=chinese,	%chinese,plain
+%	linespread=1.3,	%1.3,1.4
+]{ctexart}
+
+% included packages, comment out useless ones to speed-up compilation
+\usepackage{geometry}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[en-US]{datetime2}
+\usepackage[strict]{changepage}
+%\usepackage{lipsum}
+\usepackage{fancyhdr}
+%\usepackage{afterpage}
+\usepackage{tocloft}
+\usepackage{hyperref}		%hyper reference for figs, links, refs, eqs
+\usepackage[all]{hypcap}		%hyperref to top of figs.
+\usepackage{slashed}
+\usepackage{array}
+\usepackage{booktabs}
+%\usepackage{xcolor}
+%\usepackage{setspace}
+%\usepackage{MnSymbol}
+%\usepackage{epsfig}
+%\usepackage{natbib}
+%\usepackage{multicol}
+%\usepackage{extarrows}
+%\usepackage{booktabs}
+%\usepackage{color}
+%\usepackage[dvipsnames]{xcolor}
+%\usepackage{xeCJK,fontspec}
+\usepackage{cite}
+
+% settings for ctexart class, only uncomment options that you know
+\ctexset{
+%	punct=plain,	%quanjiao,banjiao,kaiming,CCT,plain
+%	space=auto,	%true,false,auto
+%	autoindent=false,	%true,false,#
+%	linestretch=\ccwd,	%\ccwd,\maxdimen
+	today=old,	%small,big,old
+	contentsname={目\hspace{2\ccwd}录},
+%	listfigurename={图列测试},
+%	listtablename={表列测试},
+%	figurename={图测试},
+%	tablename={表测试},
+%	abstractname={摘要测试},
+%	indexname={测试},
+	appendixname={附录},
+	bibname={参考文献},
+%	proofname={测试},
+%	refname={测试},
+%	algorithmname={测试},
+%	continuation={测试},
+%	secnumdepth=1,
+	section={
+		name={第,章},	%{\S},{第,节},{\sectionname\space},{}
+%		numbering=true,	%true,false
+%		number={\chinese{section}},	%\arabic,\chinese,\roman,\Roman
+%		format+={\bfseries\heiti\zihao{3}},
+%		nameformat+={},
+%		numberformat+={},
+%		titleformat+={},
+%		aftername+={},
+%		aftertitle+={},
+%		runin=false,	%true,false
+%		hang=true,	%true,false
+%		indent=0pt,	%em,ex,\ccwd,pt
+%		beforeskip={0pt},afterskip={0pt},
+%		fixskip=false,	%true,false
+%		afterindent=false,	%true,false
+	},
+%	subsection={
+%		format={\bfseries\heiti\zihao{4}},
+%	},
+%	tocdepth=1,
+}
+
+% settings for geometry package, set before writing in geometry package
+\geometry{
+	a4paper,
+	portrait,
+	twoside,
+	top=40mm,
+	bottom=35mm,
+	inner=30mm,
+	outer=30mm,
+	headheight=25mm,
+	headsep=5mm,
+	footskip=25mm,
+	marginparsep=5mm,
+	marginparwidth=15mm,
+}
+
+% settings for header and foot style in fancyhdr package
+%\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+%\fancyhead[LO]{\includegraphics[height=15mm]{fig-logos/header-doctorate}}
+%\fancyhead[RO,LE]{\leftmark}
+%\fancyhead[RE]{\rightmark}
+%\fancyfoot[C]{-~\thepage~-}
+%\fancypagestyle{plain}{
+%	\fancyhf{}
+%	\fancyhead[LO]{\includegraphics[height=15mm]{fig-logos/header-doctorate}}
+%	\fancyhead[RO,LE]{\leftmark}
+%	\fancyfoot[C]{-~\thepage~-}
+%}
+%\fancyhead[LO]{\includegraphics[height=15mm]{fig-logos/header-doctorate}}
+%\fancyhead[RO]{\thepage}
+\fancyhead[RO]{\leftmark}
+\fancyhead[LE]{\rightmark}
+\fancyfoot[RO,LE]{-~\thepage~-}
+%\if{false}
+\fancypagestyle{plain}{
+	\fancyhf{}
+%	\fancyhead[LO]{\includegraphics[height=15mm]{fig-logos/header-doctorate}}
+%	\fancyhead[RO]{\thepage}
+%	\fancyhead[LE]{\leftmark}
+%	\fancyfoot[CE]{-~\thepage~-}
+}
+%\fi
+\pagestyle{fancy}
+
+% settings for table-of-contents style (dots) in tocloft package
+\newcommand{\intotoc}[2][section]{%
+    \markboth{\MakeUppercase{#2}}{}% set the leftmark
+    \phantomsection% use for adobe bookmark.
+    \addcontentsline{toc}{#1}{#2}% add content #2 to toc as #1
+}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+% user defined shortcuts
+\def\boxtext[#1]#2{\hbox to #1{#2}}
+\def\boxuline[#1]#2{\underline{\hbox to #1{\hfill{#2}\hfill}}}
+\def\datecn{\the\year~年~\ifnum\the\month <10 0\fi\the\month~月}
+\def\dateen{	\DTMenglishmonthname{\the\month}~\the\year}
+
+\newcommand{\blankpage}{
+	\pagebreak
+	\thispagestyle{empty}
+	\vspace*{\stretch{1}}
+	\begin{center}
+		\zihao{-5}\songti
+		此页故意留白\\
+		This page intentionally left blank
+	\end{center}
+	\vspace*{\stretch{2}}
+	\pagebreak
+}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+\newcolumntype{L}{>{$\displaystyle }l<{$}}
+\newcolumntype{C}{>{$\displaystyle }c<{$}}
+\newcolumntype{R}{>{$\displaystyle }r<{$}}
+
+\linespread{1.5}\selectfont
+
+%公式按章节编号
+%\makeatletter % `@' now normal "letter"
+%\@addtoreset{equation}{section}
+%\makeatother  % `@' is restored as "non-letter"
+%\renewcommand\theequation{\oldstylenums{\thesection}%
+%                   .\oldstylenums{\arabic{equation}}}
