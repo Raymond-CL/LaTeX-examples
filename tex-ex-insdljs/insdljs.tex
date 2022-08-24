@@ -1,0 +1,131 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=3cm]{geometry}
+\usepackage{hyperref}
+\usepackage{insdljs}
+\usepackage{listings}
+\usepackage{fontawesome}
+\usepackage{textcomp}
+
+\begin{insDLJS}[test]{test}{JavaScript}
+function auto()
+{
+	tts.speaker = tts.getNthSpeakerName(2);
+	tts.qText ("Hello, this is a demonstration of a LaTeX document with sound by activating Java script using the insDLJS package.");
+	tts.qText ("Please click the speaker icon for code explanation.");
+	tts.talk();
+}
+
+function script1()
+{
+   tts.speaker = tts.getNthSpeakerName(2);
+   tts.qText ("We first define a Java script function in the front matter.");
+   tts.qText ("The text spoken is input in the Q-text bracket.");
+   tts.talk();
+}
+
+function script2()
+{
+   var cSpeaker = tts.getNthSpeakerName(2);
+   tts.speaker = cSpeaker;
+   tts.qText ("Then in the main document, we can include this script via a clickable push button.");
+   tts.qText ("When the button is pressed, the function is called, and the script is spoken.");
+   tts.talk();
+}
+
+function script3()
+{
+   var cSpeaker = tts.getNthSpeakerName(1);
+   tts.speaker = cSpeaker;
+   tts.qText ("We see that we can also change the speaker style by using different speaker names.");
+   tts.talk();
+}
+
+function script4()
+{
+   var cSpeaker = tts.getNthSpeakerName(0);
+   tts.speaker = cSpeaker;
+   tts.qText ("We can also include a script that is automatically spoken when the document is opened.");
+   tts.talk();
+}
+
+function script5()
+{
+   var cSpeaker = tts.getNthSpeakerName(2);
+   tts.speaker = cSpeaker;
+   tts.qText ("The package necessary for voice script is ins-D-L-J-S.");
+   tts.qText ("The font awesome package is responsible creating the speaker icon.");
+   tts.qText ("The hyper-ref package then creates the clickable box around the icon.");
+   tts.qText ("The listings package shows the codes in this document.");
+   tts.talk();
+}
+\end{insDLJS}
+
+\OpenAction{/S/JavaScript/JS(auto();)}
+
+\title{insDLJS example}
+\date{\today}
+\author{Raymond Chen}
+
+\begin{document}
+
+\maketitle
+
+a demonstration of the insDLJS package, please make sure to open this document using Adobe Acrobat\textsuperscript{\textregistered} Reader, and have the speaker volume turned up.
+\vspace*{1cm}
+
+\begin{Form}
+\PushButton[name=hello, onclick={script1();}, bordercolor={0.650 .790 .94}]{\faVolumeUp} 
+\end{Form}
+\begin{lstlisting}[basicstyle=\scriptsize]
+\begin{insDLJS}[test]{test}{JavaScript}
+function script()
+{
+	tts.speaker = tts.getNthSpeakerName(0);
+	tts.qText ("Hello, testing Java script speaker.");
+	tts.talk();
+}
+\end{insDLJS}
+\end{lstlisting}
+\vspace*{1cm}
+
+\begin{Form}
+\PushButton[name=hello, onclick={script2();}, bordercolor={0.650 .790 .94}]{\faVolumeUp} 
+\end{Form}
+\begin{lstlisting}[basicstyle=\scriptsize]
+\begin{document}
+...
+\begin{Form}
+\PushButton[name=anyname, onclick={script();}]{\faVolumeUp}
+\end{Form}
+...
+\end{document}
+\end{lstlisting}
+\vspace*{1cm}
+
+\begin{Form}
+\PushButton[name=hello, onclick={script3();}, bordercolor={0.650 .790 .94}]{\faVolumeUp} 
+\end{Form}
+\begin{lstlisting}[basicstyle=\scriptsize]
+tts.getNthSpeakerName(1)
+\end{lstlisting}
+\vspace*{1cm}
+
+\begin{Form}
+\PushButton[name=hello, onclick={script4();}, bordercolor={0.650 .790 .94}]{\faVolumeUp} 
+\end{Form}
+\begin{lstlisting}[basicstyle=\scriptsize]
+\OpenAction{/S/JavaScript/JS(script();)}
+\end{lstlisting}
+\vspace*{1cm}
+
+\begin{Form}
+\PushButton[name=hello, onclick={script5();}, bordercolor={0.650 .790 .94}]{\faVolumeUp} 
+\end{Form}
+\begin{lstlisting}[basicstyle=\scriptsize]
+\usepackage{insdljs}
+\usepackage{fontawesome}
+\usepackage{hyperref}
+\usepackage{listings}
+\end{lstlisting}
+
+\end{document}
