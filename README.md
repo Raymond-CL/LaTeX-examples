@@ -25,4 +25,6 @@ pdflatex -synctex=1 -interaction=nonstopmode  -shell-escape main.tex
 pdflatex -synctex=1 -interaction=nonstopmode  -shell-escape main.tex
 ```
 - the `ctex` manual is also included in the `manuals` folder for code reference
+- an update allows the project to be compile on overleaf. However, as of current, the ctex font `fandol` family doesn't seem to be
+  available on overleaf. So I commented out somecodes which compile to zero errors and warnings. Make sure to set the main document to `main.tex` and use the `LuaLaTeX` compiler.
 
